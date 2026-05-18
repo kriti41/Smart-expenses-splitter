@@ -1,0 +1,56 @@
+started by understanding the business constraints 
+after listing the core requirements .focused on backend first by undersanding the schema  
+ the first prompt You are the core extraction matrix layer for a financial ledger application. 
+Your job is to parse unstructured text into a strict JSON schema.
+
+Available Group Members: ["Aman", "Priya", "Rahul", "Sneha", "Vikram"]
+Current Workspace Context: {group_id}
+Active Session Identity (Resolves "I", "me", "myself"): {current_user}
+
+Expected Output Format (Strict JSON):
+{
+  "description": "Short clear string describing the expense context",
+  "amount_paise": integer (calculate standard unit to total integer paise, e.g. 15.50 -> 1550),
+  "payer_id": "String matching available group members exactly",
+  "group_id": "String matching workspace context",
+  "shares": [
+    { "user_id": "String matching member", "owed_paise": integer }
+  ]
+}
+
+Rules:
+1. Ensure the sum of all 'owed_paise' inside the shares array EXACTLY equals the 'amount_paise'.
+2. If participants are implicitly stated ("split equally between us"), distribute weights evenly across all mentioned or active members.
+3. Do not return markdown blocks, prose, or commentary. Return naked JSON only.
+
+Text to Parse: "{text_input}"
+later prompts:
+What I Asked:
+“Build a dark-themed Streamlit layout for an expense splitting app named SplitSmart AI Pro. Use a slate/emerald color palette, design card containers via custom CSS markdown injection, and set up five distinct tabs for Expense Entry, AI Extraction, Balances, History, and Bill Itemization.”
+
+1-Line Summary of What I Got:
+Generated a fully structured dark-mode Streamlit dashboard featuring custom CSS styling, high-fidelity UI components, and dedicated tabs for all primary expense management workflows.
+
+Log 02: Relational Schema Mapping
+
+What I Asked:
+“Create a FastAPI backend endpoint POST /expenses/ that accepts a nested Pydantic schema model representing a parent transaction and an array of individual child rows tracking owed currency values in integer paise.”
+
+1-Line Summary of What I Got:
+Received a production-ready FastAPI endpoint implementation with strongly typed Pydantic validation models aligned to a scalable parent-child relational database structure.
+
+Log 03: Frontend–Backend Integration
+
+What I Asked:
+“The Streamlit manual expense form currently displays only a mock success message. Rewrite the submission logic to properly convert form inputs into integer values, construct the shares payload array, and send the request to my local FastAPI endpoint using the Python requests library.”
+
+1-Line Summary of What I Got:
+Transformed the placeholder form workflow into a functional full-stack integration pipeline with payload construction, API communication, and structured exception handling.
+
+Log 04: Validation Checksum Logic
+
+What I Asked:
+“Write a validation check for my FastAPI backend to verify that the sum of all individual shares exactly matches the amount_paise value before inserting into the database, otherwise return a 422 validation error.”
+
+1-Line Summary of What I Got:
+Implemented backend-side validation logic that detects and rejects mismatched expense allocations prior to database transaction commits.

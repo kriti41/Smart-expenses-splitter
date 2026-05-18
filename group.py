@@ -1,9 +1,8 @@
-from sqlalchemy import Column, Integer, String
-from ..database import Base
+from fastapi import APIRouter
+
+router = APIRouter(prefix="/groups", tags=["Groups"])
 
 
-class Group(Base):
-    __tablename__ = "groups"
-
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
+@router.get("/")
+def get_groups():
+    return []

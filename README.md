@@ -111,3 +111,19 @@ streamlit run frontend.py
 Frontend runs on:
 
 http://localhost:8501
+
+
+Current Limitations
+OCR backend parsing not fully implemented
+AI output quality depends on local model
+Authentication system not added
+Real-time sync not implemented yet
+Multi-currency conversion not implemented
+Future Improvements
+JWT authentication
+Real-time updates
+Better OCR support
+PostgreSQL migration
+Mobile app version
+Advanced AI extraction
+Recurring expenses
